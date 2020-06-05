@@ -1,5 +1,13 @@
 package JavaPlactice;
+class SimpleClass {
+	void dosomething() {
+		 int array[] = new int[3];
+		 array[10] = 99;
+		 System.out.println("dosomethingメソッドを終了します。");
+	 }
+}
 public class JavaCode {
+	
 	 public static void main(String[] args) {
 //	  String str = "Javaの学習";
 //	  System.out.println(str.length());
@@ -13,16 +21,24 @@ public class JavaCode {
 //        for(int i = 0; i < items.length; i++) {
 //        System.out.println(items[i]);
 //        }
-		 int a = 4;
-		 int b = 0;
+//		 int a = 4;
+//		 int b = 0;
+//		 try {
+//		 int c = a / b;
+//		 System.out.println("cの値は" + c);
+//		 }
+//		catch(ArithmeticException e) {
+//		 System.out.println("例外をキャッチしました");
+//		 System.out.println(e);
+//		 }
+//		 System.out.println("プログラムを終了します");
+		 SimpleClass obj = new SimpleClass();
 		 try {
-		 int c = a / b;
-		 System.out.println("cの値は" + c);
+			 obj.dosomething();
 		 }
-		catch(ArithmeticException e) {
-		 System.out.println("例外をキャッチしました");
-		 System.out.println(e);
+		 catch(ArrayIndexOutOfBoundsException e) {
+			 System.out.println("例外をキャッチしました");
+			 e.printStackTrace();
 		 }
-		 System.out.println("プログラムを終了します");
     }
 }
