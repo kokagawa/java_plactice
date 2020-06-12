@@ -6,9 +6,21 @@ class SimpleClass {
 		 System.out.println("dosomethingメソッドを終了します。");
 	 }
 }
+
 class InvalidAgeException extends Exception {
 	InvalidAgeException(String message){
 		super(message);
+	}
+}
+
+class Person {
+	int age;
+	void setAge(int age) throws InvalidAgeException {
+		if(age < 0) {
+			throw new InvalidAgeException("年齢にマイナスの値が指定されました");
+		}
+		this.age = age;
+		System.out.println("年齢は" + age + "です");
 	}
 }
 public class JavaCode {
@@ -64,15 +76,22 @@ public class JavaCode {
 //			System.out.println(e);
 //		}
 //		System.out.println("プログラムを終了します");
-		 int age = -10;
+//		 int age = -10;
+//		 try {
+//			 if(age < 10) {
+//				 throw new InvalidAgeException("年齢にマイナスの値が設定されました");
+//			 }
+//			 System.out.println("年齢は" + age + "歳です");
+//		 }
+//		 catch(InvalidAgeException e) {
+//			 System.out.println("例外をキャッチしました");
+//			 System.out.println(e);
+//		 }
+		 Person P = new Person();
 		 try {
-			 if(age < 10) {
-				 throw new InvalidAgeException("年齢にマイナスの値が設定されました");
-			 }
-			 System.out.println("年齢は" + age + "歳です");
+			 P.setAge(-5);
 		 }
 		 catch(InvalidAgeException e) {
-			 System.out.println("例外をキャッチしました");
 			 System.out.println(e);
 		 }
     }
