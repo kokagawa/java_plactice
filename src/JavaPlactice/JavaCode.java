@@ -23,6 +23,14 @@ class Person {
 		System.out.println("年齢は" + age + "です");
 	}
 }
+
+class Mythread extends Thread {
+	public void run() {
+		for(int i = 0; i < 100; i++) {
+			System.out.println("Mythreadのrunメソッド(" + i + ")");
+		}
+	}
+}
 public class JavaCode {
 	
 	 public static void main(String[] args) {
@@ -87,12 +95,18 @@ public class JavaCode {
 //			 System.out.println("例外をキャッチしました");
 //			 System.out.println(e);
 //		 }
-		 Person P = new Person();
-		 try {
-			 P.setAge(-5);
-		 }
-		 catch(InvalidAgeException e) {
-			 System.out.println(e);
+//		 Person P = new Person();
+//		 try {
+//			 P.setAge(-5);
+//		 }
+//		 catch(InvalidAgeException e) {
+//			 System.out.println(e);
+//		 }
+		 Mythread t = new Mythread();
+		 t.start();
+		 
+		 for(int i = 0; i < 100; i++) {
+			 System.out.println("SimpleThreadTestのmainメソッド(" + i + ")");
 		 }
     }
 }
