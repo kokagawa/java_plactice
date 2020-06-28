@@ -31,8 +31,16 @@ class Mythread extends Thread {
 		}
 	}
 }
+
+class MyThread implements Runnable {
+	public void run() {
+		for(int i =  0; i < 100; i++) {
+			System.out.println("MyThreadのRUNメソッド(" + i + ")");
+		}
+	}
+}
 public class JavaCode {
-	
+
 	 public static void main(String[] args) {
 //	  String str = "Javaの学習";
 //	  System.out.println(str.length());
@@ -102,11 +110,18 @@ public class JavaCode {
 //		 catch(InvalidAgeException e) {
 //			 System.out.println(e);
 //		 }
-		 Mythread t = new Mythread();
-		 t.start();
-		 
+//		 Mythread t = new Mythread();
+//		 t.start();
+//
+//		 for(int i = 0; i < 100; i++) {
+//			 System.out.println("SimpleThreadTestのmainメソッド(" + i + ")");
+//		 }
+		 MyThread t = new MyThread();
+		 Thread thread = new Thread(t);
+		 thread.start();
+
 		 for(int i = 0; i < 100; i++) {
-			 System.out.println("SimpleThreadTestのmainメソッド(" + i + ")");
+			 System.out.println("SimpleThreadTest2のmainメソッド(" + i + ")");
 		 }
     }
 }
